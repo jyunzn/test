@@ -1,0 +1,57 @@
+
+@keyframes wave-animation
+  0%
+    transform: translate(-50%,-50%) scale(0)
+    opacity: 1
+  100%
+    transform: translate(-50%,-50%) scale(2)
+    opacity: 0
+
+.nodeSelector
+  position: absolute
+  right: 50px
+  top: 50px
+
+.map
+  border: solid 2px #51D5FF
+  background-color: black
+  position: fixed
+  left: 25px
+  bottom: 35px
+  width: 300px
+  height: 200px
+  z-index: 500
+  overflow: hidden
+  .node
+    position: absolute
+    width: 2px
+    height: 2px
+    // background-color: #fff
+    border-radius: 50%
+    cursor: pointer
+    border: solid 2px #51D5FF
+    box-shadow: 0px 0px 10px rgba(#51D5FF,0.3)
+    transition-duration: 0.5s
+    transform-origin: center center
+    &.active
+      width: 2px
+      height: 2px
+      background-color: white
+      border: solid 2px white
+      box-shadow: 0px 0px 10px white
+  .wave
+    width: 30px
+    height: 30px
+    border: solid 3px white
+    border-radius: 50%
+    position: absolute
+    left: 50%
+    top: 50%
+    opacity: 0
+    
+  .node.active
+    .wave
+      animation: wave-animation 1s ease infinite
+      // @for $i from 1 through 5
+      //   &:nth-child(#{$i})
+      //     animation-delay: $i*0.4s

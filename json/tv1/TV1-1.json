@@ -1,0 +1,74 @@
+{
+    "1_hunting": {
+        "port": "445",
+        "ip": "217.79.14.78",
+        "type": "dionaea.capture",
+		"cc": "RU"
+    },
+   "2_environment":{
+      "cpu":"i386",
+      "duration":"2",
+      "task_id":"15001",
+      "vm_id":"i386_2"
+   },
+   "3_static":{
+      "crc32":"FE7A09D1",
+      "filesize":82832,
+      "filetype":"ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), statically linked, strippe",
+      "md5":"5754e3b93479bd14160e84c0e860a798",
+      "sha1":"1cad3fa5d28c594b6d98e106889128cfe901c756",
+      "sha256":"b340d7280cd3549ad3b9c73664dab713312561fb1e814fd6c439f9314a556de3",
+      "ssdeep":"1536:ypUWzZiupPodPF65ZXtDTKm1VAp8QFRX0q1/QdCWqcQiU+LMdI/sIpDlT+C:yp5zZiupPodPF65NxTn1VS8QKdCWpPfX",
+      "yara":"maldoc_getEIP_method_1,"
+   },
+   "4_dynamic":{
+      "DELETE_SELF":"[\"{'functionCall': 'rmdir', 'param': '\\\"/root/malware\\\"', 'returnValue': '-1', 'message': 'ENOTDIR (Not a directory)', 'content': None, 'pid': '2223', 'time': '2020-04-22T16:44:26.716049', 'path': '/root/malware', 'targetType': 'file'}\", \"{'functionCall': 'unlink', 'param': '\\\"/root/malware\\\"', 'returnValue': '0', 'content': None, 'pid': '2223', 'time': '2020-04-23T16:44:28.540111', 'path': '/root/malware', 'targetType': 'file'}\"]",
+      "KILL_PROCESS":"[\"{'functionCall': 'kill', 'param': '2137, SIGKILL', 'returnValue': '0', 'content': None, 'pid': '2233', 'time': '2020-04-23T16:44:28.523239', 'path': None, 'targetType': None, 'flag': ['SIGKILL']}\"]",
+      "LISTEN_PORT":"[\"{'functionCall': 'listen', 'param': '3<socket:[5456]>, 1', 'returnValue': '0', 'content': None, 'pid': '2223', 'time': '2020-04-22T16:44:17.241042', 'path': ('127.0.0.1', '42516'), 'targetType': 'ip'}\", \"{'functionCall': 'listen', 'param': '4<socket:[5499]>, 1', 'returnValue': '0', 'content': None, 'pid': '2233', 'time': '2020-04-23T16:44:27.592942', 'path': ('0.0.0.0', '23'), 'targetType': 'ip'}\"]",
+      "PORT_SCAN":"[80, 34241, 445, 23]",
+      "STRIPPED_BINARY":"[]",
+      "SYMBOL_CONTAIN_PATH":"[\"/proc/net/tcp\", \"/dev/null\"]",
+      "USE_NON_STANDARD_PORT":"[34241, 445]"
+   },
+   "5_evaluation":[
+      {
+         "1217":{
+            "kill":"false",
+            "score":"10.000000"
+         },
+         "1222":{
+            "kill":"false",
+            "score":"10.000000"
+         },
+         "1227":{
+            "kill":"false",
+            "score":"10.000000"
+         },
+         "1232":{
+            "kill":"false",
+            "score":"10.000000"
+         },
+         "1237":{
+            "kill":"false",
+            "score":"10.000000"
+         },
+         "1264":{
+            "kill":"true",
+            "score":"1970.000000"
+         },
+         "1269":{
+            "kill":"true",
+            "score":"100.000000"
+         },
+         "1271":{
+            "kill":"true",
+            "score":"2048.571429"
+         },
+         "1287":{
+            "kill":"false",
+            "score":"10.000000"
+         }
+      }
+   ],
+   "6_result":"true"
+}

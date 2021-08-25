@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Play:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/tv2.css">
+    <link rel="stylesheet" href="graph/style.css">
+
+    <script src="https://unpkg.com/vue@next"></script>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" 
+        integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.socket.io/3.1.3/socket.io.min.js"
+        integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="data-wrap animate-init">
+            <h2 class="h2">
+                <img src="./images/tv2/Malware_Data.svg" alt="">
+            </h2>
+            <ul class="content">
+            </ul>
+            <div class="loading-lines-wrap">
+                <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <div class="decoration-wrap">
+                <img src="./images/tv2/decoration-1.svg" alt="">
+            </div>
+        </div>
+
+        <div class="count">
+            <div class="row">
+                <div id="count1" class="col number-line">
+                    <h2 class="h2">All</h2>
+                    <div class="wrap-content">
+                        <div class="wrap-info">
+                            <span class="analyzed">998</span><span>/</span><span class="total">1000</span>
+                        </div>
+                        <div class="wrap-canvas">
+                            <canvas></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div id="count2" class="col number-line">
+                    <h2 class="h2">Today</h2>
+                    <div class="wrap-content">
+                        <div class="wrap-info">
+                            <span class="analyzed">998</span><span>/</span><span class="total">1000</span>
+                        </div>
+                        <div class="wrap-canvas">
+                            <canvas></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <i class="line"></i>
+            <div class="row">
+                <div id="count3" class="col number-circle">
+                    <h2 class="h2">IOT Malware Pass Ratio</h2>
+                    <div class="wrap-content">
+                        <div class="wrap-canvas">
+                            <canvas></canvas>
+                        </div>
+                        <div class="wrap-info">
+                            <span class="number">0</span>
+                            <span class="unit">%</span>
+                        </div>
+                    </div>
+                </div>
+                <div id="count4" class="col pie">
+                    <h2 class="h2">Malware Family Distrubution</h2>
+                    <div class="wrap-content">
+                        <div class="wrap-canvas">
+                            <canvas></canvas>
+                        </div>
+                        <div class="wrap-info">
+                            <ul>
+                                <li><i></i><span>Mirai</span></li>
+                                <li><i></i><span>Mirai</span></li>
+                                <li><i></i><span>Mirai</span></li>
+                                <li><i></i><span>Mirai</span></li>
+                                <li><i></i><span>Mirai</span></li>
+                                <li><i></i><span>Mirai</span></li>
+                                <li><i></i><span>Mirai</span></li>
+                                <li><i></i><span>Mirai</span></li>
+                                <li><i></i><span>Mirai</span></li>
+                                <li><i></i><span>Mirai</span></li>
+                                <li><i></i><span>Mirai</span></li>
+                                <li><i></i><span>Mirai</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <i class="line"></i>
+            <div class="row">
+                <div id="count5" class="col pie">
+                    <h2 class="h2">Malware CPU architecture ratio</h2>
+                    <div class="wrap-content">
+                        <div class="wrap-canvas">
+                            <canvas></canvas>
+                        </div>
+                        <div class="wrap-info">
+                            <ul>
+                                <li><i></i><span>Mirai</span></li>
+                                <li><i></i><span>Mirai</span></li>
+                                <li><i></i><span>Mirai</span></li>
+                                <li><i></i><span>Mirai</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="count6" class="col bar">
+                    <h2 class="h2">Kill ratio for each CPU architecture</h2>
+                    <div class="wrap-content">
+                        <div class="wrap-bar">
+                            <ul class="y">
+                                <li>150</li>
+                                <li>100</li>
+                                <li>50</li>
+                                <li>0</li>
+                            </ul>
+                            <div class="wrap-canvas">
+                                <canvas></canvas>
+                                <ul class="x">
+                                    <li>150</li>
+                                    <li>100</li>
+                                    <li>50</li>
+                                    <li>0</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <ul class="wrap-info">
+                            <li class="kill"><i></i><span>Kill</span></li>
+                            <li class="all"><i></i><span>All</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <i class="line"></i>
+            <div class="row">
+                <div id="count7" class="col poly">
+                    <h2 class="h2">Malware kill trend(per day)</h2>
+                    <div class="wrap-content">
+                        <div class="wrap-bar">
+                            <ul class="y">
+                                <li>150</li>
+                                <li>100</li>
+                                <li>50</li>
+                                <li>0</li>
+                            </ul>
+                            <div class="wrap-canvas">
+                                <canvas height="0"></canvas>
+                                <ul class="x">
+                                    <li><span>01<br>25</span></li>
+                                    <li><span>01<br>25</span></li>
+                                    <li><span>01<br>25</span></li>
+                                    <li><span>01<br>25</span></li>
+                                    <li><span>01<br>25</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <ul class="wrap-info">
+                            <li class="kill"><i></i><span>Kill</span></li>
+                            <li class="not-to-kill"><i></i><span>Not to kill</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img class="decoration-arraw-top" src="./images/tv2/decoration-arraw-1.svg" alt="">
+        
+        <div id="app">
+            <panasonic-graph
+                ref="graph"
+                default-file-path="/graph/"
+                v-bind:loadDefaultGraph="0"
+                v-bind:showSmallMap="showSmallMap"
+            ></panasonic-graph>
+        </div>
+        <div class="virus-name-container">
+            <p>Mirai</p>
+        </div>
+    </div>
+    <script type="module" src="./js/tv2/index.js"></script>
+</body>
+</html>

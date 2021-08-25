@@ -1,0 +1,32 @@
+{
+    "URL": "http://localhost",
+    "PORT": "5000",
+    "TV1": {
+        "http": {
+            "changeId": "api/change_taskid",
+            "getTask": {
+                "route": "api/tv1",
+                "query": "task_id"
+            },
+            "getID": "api/get_taskid",
+            "shell": "shell"
+        },
+        "ws": {
+            "terminal": "terminal_response",
+            "open_terminal": "open_terminal"
+        }
+    },
+    "TV2": {
+        "http": {
+            "getTask": {
+                "route": "api/tv2",
+                "query": "task_id"
+            },
+            "publish": "publish"
+        },
+        "ws": {
+            "publish_response": "publish_response",   
+            "open_publish": "open_publish"
+        }
+    }
+}

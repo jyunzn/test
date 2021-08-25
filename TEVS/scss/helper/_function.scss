@@ -1,0 +1,7 @@
+@function px2vw($px) {
+    @return $px / (map-get($window, 'width') / 100) * 1vw;
+}
+
+@function px2vh($px) {
+    @return $px / (map-get($window, 'height') / 100) * 1vh;
+}

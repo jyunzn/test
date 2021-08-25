@@ -1,0 +1,456 @@
+<template>
+  <panasonic-graph
+    ref="graph"
+    default-file-path="/" 
+    :loadDefaultGraph="false"
+    :showSmallMap="showSmallMap"
+
+  ></panasonic-graph>
+</template>
+
+<script>
+import * as dat from 'dat.gui'; 
+
+let newDataSample = {
+  "map": {
+    "nodes": [
+      {
+        "id": "cluster_0",
+        "group": 0
+      },
+      {
+        "id": "3::",
+        "group": 0
+      },
+      {
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "group": 0
+      },
+      {
+        "id": "cluster_1",
+        "group": 1
+      },
+      {
+        "id": "24:JKR4llMRgP9qD0at6EoKGzrUlFSy4LzLCkIddgERGIUXAhVNfW:JKqTFqDPtarkFSy4LzL5IUXAhVNu",
+        "group": 1
+      },
+      {
+        "id": "a55eaa9b1495670f37cf1b5b95be8832",
+        "group": 1
+      },
+      {
+        "id": "cluster_2",
+        "group": 2
+      },
+      {
+        "id": "1536:De5kgYawggPL6LCgHfjHBSyEvxEy3RiaBy21TJA:YhwgOLQCorHUHvGy3Rls29J",
+        "group": 2
+      },
+      {
+        "id": "b60fd013498a9c9b4ccd37efe2d5c36a",
+        "group": 2
+      },
+      {
+        "id": "cluster_3",
+        "group": 3
+      },
+      {
+        "id": "1536:VvmyehDi86b9vUwmkaqXDBnww6Ioh+kWIs:VvmyehmYVw6hhT",
+        "group": 3
+      },
+      {
+        "id": "bd70e893198c52a929266a5dd14e6448",
+        "group": 3
+      },
+      {
+        "id": "cluster_4",
+        "group": 4
+      },
+      {
+        "id": "3072:Cv/WwsLgaq353qHiCOvhOpOqkDQHbeskmhxQwoVSUNu:KPLaq351hOpOqkLskmhxQwoVSUNu",
+        "group": 4
+      },
+      {
+        "id": "8c370c159adfed2e0d8d071a8e0c7dac",
+        "group": 4
+      },
+      {
+        "id": "3072:yv/WwsLgaq353qHiCOvhOpKPd7JDBXcyfkmhxQwoVZUNu:aPLaq351hOpKPdkCkmhxQwoVZUNu",
+        "group": 4
+      },
+      {
+        "id": "acc065e72324a1918d572c034d59a233",
+        "group": 4
+      },
+      {
+        "id": "cluster_5",
+        "group": 5
+      },
+      {
+        "id": "3072:+TxTpV3ncHvm7LnFbYB7rRNMXHCDrZqUats4XmnoQhJUx3Nu:+Tl6v2i9RNMXiDrZqrmnoQhJUx3Nu",
+        "group": 5
+      },
+      {
+        "id": "77974b7a470b045005bd777183af69fc",
+        "group": 5
+      },
+      {
+        "id": "cluster_6",
+        "group": 6
+      },
+      {
+        "id": "1536:bjhMoza/CU30z1XGpkdO9YOHrvARKAuYcl0afc7ugzbmCArQ0CWC4Xmpe:CoPlTdOhARK3cPmCArQ0CN4Xmpe",
+        "group": 6
+      },
+      {
+        "id": "8eb4fdaa266c4176a94578b108ac721f",
+        "group": 6
+      },
+      {
+        "id": "cluster_7",
+        "group": 7
+      },
+      {
+        "id": "768:+yj+ca14ys/jKg1VOkcH8GnAqBAVQlQfchE7qIqIaGuuq3Uirx5lWm0hZ2LXES:Bm4ys/j1VOJtTAVQlDS7qIBilfg2LXES",
+        "group": 7
+      },
+      {
+        "id": "468027415a92b9ab256c64a3d771477a",
+        "group": 7
+      },
+      {
+        "id": "cluster_8",
+        "group": 8
+      },
+      {
+        "id": "3072:6jVlyaL5JCrIpv04sbbstiEiJmP46aQyfPluesNb:yoCJCN4sbb8YmP46aQyfPluesNb",
+        "group": 8
+      },
+      {
+        "id": "656b48c477132f73ed74a32bb0353827",
+        "group": 8
+      }
+    ],
+    "links": [
+      {
+        "source": "3::",
+        "target": "cluster_0"
+      },
+      {
+        "source": "d41d8cd98f00b204e9800998ecf8427e",
+        "target": "3::"
+      },
+      {
+        "source": "24:JKR4llMRgP9qD0at6EoKGzrUlFSy4LzLCkIddgERGIUXAhVNfW:JKqTFqDPtarkFSy4LzL5IUXAhVNu",
+        "target": "cluster_1"
+      },
+      {
+        "source": "a55eaa9b1495670f37cf1b5b95be8832",
+        "target": "24:JKR4llMRgP9qD0at6EoKGzrUlFSy4LzLCkIddgERGIUXAhVNfW:JKqTFqDPtarkFSy4LzL5IUXAhVNu"
+      },
+      {
+        "source": "1536:De5kgYawggPL6LCgHfjHBSyEvxEy3RiaBy21TJA:YhwgOLQCorHUHvGy3Rls29J",
+        "target": "cluster_2"
+      },
+      {
+        "source": "b60fd013498a9c9b4ccd37efe2d5c36a",
+        "target": "1536:De5kgYawggPL6LCgHfjHBSyEvxEy3RiaBy21TJA:YhwgOLQCorHUHvGy3Rls29J"
+      },
+      {
+        "source": "1536:VvmyehDi86b9vUwmkaqXDBnww6Ioh+kWIs:VvmyehmYVw6hhT",
+        "target": "cluster_3"
+      },
+      {
+        "source": "bd70e893198c52a929266a5dd14e6448",
+        "target": "1536:VvmyehDi86b9vUwmkaqXDBnww6Ioh+kWIs:VvmyehmYVw6hhT"
+      },
+      {
+        "source": "3072:Cv/WwsLgaq353qHiCOvhOpOqkDQHbeskmhxQwoVSUNu:KPLaq351hOpOqkLskmhxQwoVSUNu",
+        "target": "cluster_4"
+      },
+      {
+        "source": "8c370c159adfed2e0d8d071a8e0c7dac",
+        "target": "3072:Cv/WwsLgaq353qHiCOvhOpOqkDQHbeskmhxQwoVSUNu:KPLaq351hOpOqkLskmhxQwoVSUNu"
+      },
+      {
+        "source": "3072:yv/WwsLgaq353qHiCOvhOpKPd7JDBXcyfkmhxQwoVZUNu:aPLaq351hOpKPdkCkmhxQwoVZUNu",
+        "target": "cluster_4"
+      },
+      {
+        "source": "acc065e72324a1918d572c034d59a233",
+        "target": "3072:yv/WwsLgaq353qHiCOvhOpKPd7JDBXcyfkmhxQwoVZUNu:aPLaq351hOpKPdkCkmhxQwoVZUNu"
+      },
+      {
+        "source": "3072:+TxTpV3ncHvm7LnFbYB7rRNMXHCDrZqUats4XmnoQhJUx3Nu:+Tl6v2i9RNMXiDrZqrmnoQhJUx3Nu",
+        "target": "cluster_5"
+      },
+      {
+        "source": "77974b7a470b045005bd777183af69fc",
+        "target": "3072:+TxTpV3ncHvm7LnFbYB7rRNMXHCDrZqUats4XmnoQhJUx3Nu:+Tl6v2i9RNMXiDrZqrmnoQhJUx3Nu"
+      },
+      {
+        "source": "1536:bjhMoza/CU30z1XGpkdO9YOHrvARKAuYcl0afc7ugzbmCArQ0CWC4Xmpe:CoPlTdOhARK3cPmCArQ0CN4Xmpe",
+        "target": "cluster_6"
+      },
+      {
+        "source": "8eb4fdaa266c4176a94578b108ac721f",
+        "target": "1536:bjhMoza/CU30z1XGpkdO9YOHrvARKAuYcl0afc7ugzbmCArQ0CWC4Xmpe:CoPlTdOhARK3cPmCArQ0CN4Xmpe"
+      },
+      {
+        "source": "768:+yj+ca14ys/jKg1VOkcH8GnAqBAVQlQfchE7qIqIaGuuq3Uirx5lWm0hZ2LXES:Bm4ys/j1VOJtTAVQlDS7qIBilfg2LXES",
+        "target": "cluster_7"
+      },
+      {
+        "source": "468027415a92b9ab256c64a3d771477a",
+        "target": "768:+yj+ca14ys/jKg1VOkcH8GnAqBAVQlQfchE7qIqIaGuuq3Uirx5lWm0hZ2LXES:Bm4ys/j1VOJtTAVQlDS7qIBilfg2LXES"
+      },
+      {
+        "source": "3072:6jVlyaL5JCrIpv04sbbstiEiJmP46aQyfPluesNb:yoCJCN4sbb8YmP46aQyfPluesNb",
+        "target": "cluster_8"
+      },
+      {
+        "source": "656b48c477132f73ed74a32bb0353827",
+        "target": "3072:6jVlyaL5JCrIpv04sbbstiEiJmP46aQyfPluesNb:yoCJCN4sbb8YmP46aQyfPluesNb"
+      }
+    ],
+    "tags": [
+      {
+        "md5": "d41d8cd98f00b204e9800998ecf8427e",
+        "filename": "d41d8cd98f00b204e9800998ecf8427e",
+        "tag": "tsunami",
+        "is_running": 1
+      },
+      {
+        "md5": "a55eaa9b1495670f37cf1b5b95be8832",
+        "filename": "a55eaa9b1495670f37cf1b5b95be8832",
+        "tag": "unknown",
+        "is_running": 0
+      },
+      {
+        "md5": "b60fd013498a9c9b4ccd37efe2d5c36a",
+        "filename": "b60fd013498a9c9b4ccd37efe2d5c36a",
+        "tag": "mirai",
+        "is_running": 0
+      },
+      {
+        "md5": "bd70e893198c52a929266a5dd14e6448",
+        "filename": "bd70e893198c52a929266a5dd14e6448",
+        "tag": "mirai",
+        "is_running": 0
+      },
+      {
+        "md5": "8c370c159adfed2e0d8d071a8e0c7dac",
+        "filename": "8c370c159adfed2e0d8d071a8e0c7dac",
+        "tag": "gafgyt",
+        "is_running": 0
+      },
+      {
+        "md5": "acc065e72324a1918d572c034d59a233",
+        "filename": "acc065e72324a1918d572c034d59a233",
+        "tag": "gafgyt",
+        "is_running": 0
+      },
+      {
+        "md5": "77974b7a470b045005bd777183af69fc",
+        "filename": "77974b7a470b045005bd777183af69fc",
+        "tag": "gafgyt",
+        "is_running": 0
+      },
+      {
+        "md5": "8eb4fdaa266c4176a94578b108ac721f",
+        "filename": "8eb4fdaa266c4176a94578b108ac721f",
+        "tag": "gafgyt",
+        "is_running": 0
+      },
+      {
+        "md5": "468027415a92b9ab256c64a3d771477a",
+        "filename": "468027415a92b9ab256c64a3d771477a",
+        "tag": "mirai",
+        "is_running": 0
+      },
+      {
+        "md5": "656b48c477132f73ed74a32bb0353827",
+        "filename": "656b48c477132f73ed74a32bb0353827",
+        "tag": "unknown",
+        "is_running": 0
+      }
+    ]
+  },
+  "static": {
+    "md5": "d41d8cd98f00b204e9800998ecf8427e",
+    "crc": "05CABB7A",
+    "size": "32.23KB",
+    "sha1": "f943fadbde8abcb2aee3b8603d5d7d558b19ff35",
+    "sha256": "cce974c9dc07bbe2fdba74f42c923e23a720da19bd3198829c1e8f1181abf058",
+    "ssdeep": "768:NZL2kuexmj/g/+YX59/0paXma2fD+nbcuyD7URQRjI:NoeAzgdJ/qb+nouy8RyM",
+    "yara": "xxxxx"
+  },
+  "Dashboard": {
+    "total_malware_graph": {
+      "total": 1000,
+      "analyzed": 998
+    },
+    "today_malware_graph": {
+      "total": 1000,
+      "analyzed": 998
+    },
+    "kill_ratio": {
+      "kill": 3000,
+      "pass": 200
+    },
+    "malware_distribution": {
+      "mirai": 3000,
+      "gafgyt": 6000,
+      "mozi": 200,
+      "tsunami": 100,
+      "coinminer": 5
+    },
+    "malware_cpu": {
+      "armel": 11783,
+      "i386": 27701,
+      "mips": 7417,
+      "aarch64": 42,
+      "amd64": 7521,
+      "ppc": 3507,
+      "sh4": 3297,
+      "sparc": 384,
+      "unknown": 15322
+    },
+    "kill_ratio_cpu": {
+      "armel": {
+        "kill": 300,
+        "pass": 100
+      },
+      "i386": {
+        "kill": 300,
+        "pass": 100
+      },
+      "mips": {
+        "kill": 300,
+        "pass": 100
+      },
+      "aarch64": {
+        "kill": 300,
+        "pass": 100
+      },
+      "amd64": {
+        "kill": 300,
+        "pass": 100
+      },
+      "ppc": {
+        "kill": 300,
+        "pass": 100
+      },
+      "sh4": {
+        "kill": 300,
+        "pass": 100
+      },
+      "sparc": {
+        "kill": 300,
+        "pass": 100
+      },
+      "unknown": {
+        "kill": 300,
+        "pass": 100
+      }
+    },
+    "kill_trend": {
+      "2021-03-22": {
+        "kill": 300,
+        "pass": 100
+      },
+      "2021-03-23": {
+        "kill": 200,
+        "pass": 150
+      },
+      "2021-03-24": {
+        "kill": 350,
+        "pass": 130
+      },
+      "2021-03-25": {
+        "kill": 300,
+        "pass": 100
+      },
+      "2021-03-26": {
+        "kill": 200,
+        "pass": 200
+      },
+      "2021-03-27": {
+        "kill": 600,
+        "pass": 200
+      }
+    }
+  }
+}
+export default {
+  data() {
+    return {
+      scale: 1,
+      jsonFile: "/1000.json",
+      gui: null,
+      targetId: "cluster_0",
+      showSmallMap: true
+    }
+  },
+  mounted(){
+    if(!this.gui){
+      this.gui = new dat.GUI();
+      this.gui.add(this, 'scale', 0.1 , 2, 0.1).listen().onChange(()=>{
+         this.$refs['graph'].setScale(this.scale)
+      })
+      this.gui.add(this, 'loadJSONFile')
+      this.gui.add(this, 'jsonFile').listen()
+      this.gui.add(this, 'setDataObject')
+      this.gui.add(this, 'moveTo')
+      this.gui.add(this, 'targetId').listen()
+      this.gui.add(this, 'drawStrokeCircle')
+      this.gui.add(this, 'showSmallMap').listen()
+      this.gui.add(this, 'zoomOut')
+      this.gui.add(this, 'clearAll')
+    }
+  },
+  methods:{
+    async setDataObject(obj){
+      obj = obj || JSON.parse(JSON.stringify(newDataSample ))
+      this.$refs['graph'].setDataObject(obj) 
+
+    },
+    loadJSONFile(){
+      this.$refs['graph'].setDataJSON(this.jsonFile)
+    },
+    drawStrokeCircle(){
+      // drawStrokeCircle (targetID , circleCount=6)
+      this.$refs['graph'].drawStrokeCircle(this.targetId)
+    },
+    zoomOut(){
+      this.$refs['graph'].zoomOut()
+    },
+    moveTo(id){
+      //moveTo(id, [Boolean] drawCircle=true)
+      this.$refs['graph'].moveTo(this.targetId)
+    },
+    clearAll(){
+      this.$refs['graph'].clearAll()
+
+    }
+  }
+}
+
+</script>
+
+<style>
+html,
+body {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  padding: 0;
+}
+</style>

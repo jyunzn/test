@@ -1,0 +1,65 @@
+{
+    "1_hunting": {
+        "port": "80",
+        "ip": "222.221.94.182",
+        "type": "Otori Device",
+        "cc":"CN"
+    },
+   "2_environment":{
+      "cpu":"i386",
+      "duration":"2",
+      "task_id":"15004",
+      "vm_id":"i386_1"
+   },
+   "3_static":{
+      "crc32":"38F3B78D",
+      "filesize":30196,
+      "filetype":"ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), statically linked, strippe",
+      "md5":"f5e13603ab077ca5732ac24327d5585e",
+      "sha1":"0eac73cd710030bfc28a078b8e80b3ed55089f2e",
+      "sha256":"c16e7e74ce7488fbb368683c9fb3749896745ac71d8be5392f6855197d9359d8",
+      "ssdeep":"768:3ZRWWF6GVZCkoPgT7RGHFKFaw33ptKUXx7W:3ZkWF6Go7g0HgFawnptjXx7W",
+      "yara":"maldoc_getEIP_method_1,"
+   },
+   "4_dynamic":{
+      "DIRECT_CONNECT_NO_DNS":"[{\"port\": \"80\", \"ip\": \"10.0.2.2\"}, {\"port\": \"445\", \"ip\": \"10.0.2.2\"}]",
+      "DNS_LOOKUP":"[{\"ip\": \"94.177.226.105\", \"domain\": \"g.lovingfairy.online\"}, {\"ip\": \"94.177.226.105\", \"domain\": \"g.lovingfairy.online\"}]",
+      "LISTEN_PORT":"[\"{'functionCall': 'listen', 'param': '3<socket:[5499]>, 1', 'returnValue': '0', 'content': None, 'pid': '2232', 'time': '2019-04-15T15:15:41.675648', 'path': ('127.0.0.1', '44122'), 'targetType': 'ip'}\"]",
+      "STRIPPED_BINARY":"[]",
+      "SYMBOL_CONTAIN_PATH":"[\"/var/\", \"/var/tmp/\", \"/root/\", \"/dev/shm\", \"/data/local/tmp/\", \"/dev/null\"]",
+      "USE_NON_STANDARD_PORT":"[445]"
+   },
+   "5_evaluation":[
+      {
+         "1224":{
+            "kill":"false",
+            "score":"10.000000"
+         },
+         "1229":{
+            "kill":"false",
+            "score":"10.000000"
+         },
+         "1236":{
+            "kill":"false",
+            "score":"10.000000"
+         },
+         "1241":{
+            "kill":"false",
+            "score":"10.000000"
+         },
+         "1246":{
+            "kill":"false",
+            "score":"10.000000"
+         },
+         "1263":{
+            "kill":"false",
+            "score":"5.454545"
+         },
+         "1264":{
+            "kill":"false",
+            "score":"8.000000"
+         }
+      }
+   ],
+   "6_result":"false"
+}

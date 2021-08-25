@@ -1,0 +1,37 @@
+{
+  "name": "panasonic-graph",
+  "version": "0.0.0",
+  "main": "dist/panasonic-graph.umd.js",
+  "module": "dist/panasonic-graph.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/panasonic-graph.es.js",
+      "require": "./dist/panasonic-graph.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@pixi/filter-advanced-bloom": "^4.1.0",
+    "d3": "^6.7.0",
+    "d3-scale-chromatic": "^2.0.0",
+    "dat.gui": "^0.7.7",
+    "gsap": "^3.6.1",
+    "pixi.js": "^6.0.4",
+    "pug": "^3.0.2",
+    "pug-loader": "^2.4.0",
+    "sass-loader": "^11.1.1",
+    "stats-js": "^1.0.1",
+    "stats.js": "^0.17.0",
+    "vue": "^3.0.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.2.2",
+    "@vue/compiler-sfc": "^3.0.5",
+    "sass": "^1.33.0",
+    "vite": "^2.3.3"
+  }
+}

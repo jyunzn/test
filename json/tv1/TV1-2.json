@@ -1,0 +1,56 @@
+{
+    "1_hunting": {
+        "port": "22",
+        "ip": "60.190.223.115",
+        "url": ["http://60.190.223.115:555/xmrminer"],
+        "credential": [
+            "root",
+            "admin"
+        ],
+        "type": "cowrie.sessions",
+        "cc":"CN"
+    },
+   "2_environment":{
+      "cpu":"amd64",
+      "duration":"2",
+      "task_id":"15003",
+      "vm_id":"amd64_1"
+   },
+   "3_static":{
+      "crc32":"4B57ADBA",
+      "filesize":116504,
+      "filetype":"ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, not strippe",
+      "md5":"2303a95474dead7cb70b408a8ab73aba",
+      "sha1":"56cc8775158d5ad20c0633fc733322b7fb977936",
+      "sha256":"b108dc229e132773eb4b71cb71a3ef2db4c209d50ab81e14b3e93acca6f38357",
+      "ssdeep":"3072:kiry859a2ADJf9wHYqbgFFo8+HeAM+T1bm7FnVqfJXoebNb:T9a2aLqkrMjBm7FnVqfJXoebNb",
+      "yara":""
+   },
+   "4_dynamic":{
+      "COMMAND_IN_STRING":"[\"/bin/sh\"]",
+      "PORT_SCAN":"[80, 666, 445]",
+      "SYMBOL_CONTAIN_PATH":"[\"/bin/sh\", \"/proc/net/route\", \"/usr/bin/python\", \"/usr/sbin/dropbear\", \"/dev/null\", \"/etc/resolv.conf\", \"/etc/config/resolv.conf\", \"/etc/hosts\", \"/etc/config/hosts\", \"libc/sysdeps/linux/x86_64/crti.S\", \"libc/sysdeps/linux/x86_64/crtn.S\", \"libc/sysdeps/linux/x86_64/crt1.S\", \"libc/sysdeps/linux/x86_64/vfork.S\"]",
+      "USE_NON_STANDARD_PORT":"[666, 445]"
+   },
+   "5_evaluation":[
+      {
+         "1157":{
+            "kill":"false",
+            "score":"10.000000"
+         },
+         "1162":{
+            "kill":"false",
+            "score":"10.000000"
+         },
+         "1204":{
+            "kill":"false",
+            "score":"10.000000"
+         },
+         "1209":{
+            "kill":"false",
+            "score":"10.000000"
+         }
+      }
+   ],
+   "6_result":"false"
+}
